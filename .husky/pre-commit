@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+pnpm version patch --no-git-tag-version
+pnpm prettier-format
+pnpm lint
+pnpm build
+git add --all
