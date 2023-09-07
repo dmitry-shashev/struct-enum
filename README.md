@@ -24,7 +24,7 @@ pnpm add struct-enum
 ## Example of using
 
 ```bash
-import { StructEnum } from '../constants/struct-enum'
+import { StructEnum } from 'struct-enum'
 
 export interface ColorValue {
   label: string
