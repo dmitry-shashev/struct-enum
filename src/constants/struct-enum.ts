@@ -49,6 +49,41 @@ export abstract class StructEnum<TClass, TValue extends object> {
     return value === this.EMPTY
   }
 
+  public toJson(value: TValue): string {
+    return JSON.stringify(value)
+  }
+
+  // "obj" may contain more fields - it checks
+  // only obligatory "value" fields
+  public fromObject(obj: object): TValue {
+    const allPossible = this.getAll()
+    const objToCheck = obj as TValue
+
+    for (const v of allPossible) {
+      const keys = Object.keys(v) as Array<keyof TValue>
+      if (keys.every((k) => v[k] === objToCheck[k])) {
+        return v
+      }
+    }
+
+    return this.EMPTY
+  }
+
+  public fromJson(value: string): TValue {
+    let parsed: unknown
+    try {
+      parsed = JSON.parse(value)
+    } catch {
+      return this.EMPTY
+    }
+
+    if (this.isObject(parsed)) {
+      return this.fromObject(parsed)
+    }
+
+    return this.EMPTY
+  }
+
   protected buildValue(obj: TValue): Readonly<TValue> {
     Object.assign(obj, {
       [VALUE_MARKER]: true,
@@ -79,5 +114,9 @@ export abstract class StructEnum<TClass, TValue extends object> {
       return true
     }
     return false
+  }
+
+  private isObject(value: unknown): value is object {
+    return typeof value === 'object' && value !== null
   }
 }

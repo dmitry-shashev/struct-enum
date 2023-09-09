@@ -21,6 +21,44 @@ For `pnpm`
 pnpm add struct-enum
 ```
 
+## API
+
+Get all values
+
+```bash
+.getAll()
+```
+
+Get by key name
+
+```bash
+.getByKey('SOME')
+```
+
+Check if the value is empty
+
+```bash
+.isEmpty(value)
+```
+
+Serialize to `json`
+
+```bash
+.toJson(value)
+```
+
+Deserialize from `json`
+
+```bash
+.fromJson(value)
+```
+
+Try to get from the object
+
+```bash
+.fromObject(value)
+```
+
 ## Example of using
 
 ```bash
