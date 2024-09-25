@@ -4,7 +4,7 @@
     "type": "git",
     "url": "https://github.com/dmitry-shashev/struct-enum"
   },
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Improved constants",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -21,8 +21,8 @@
     "dist"
   ],
   "engines": {
-    "node": ">=18.17.1",
-    "pnpm": ">=8.7.4"
+    "node": ">=20.11.0",
+    "pnpm": ">=9.11"
   },
   "prettier": {
     "arrowParens": "always",
@@ -32,7 +32,7 @@
     "singleQuote": true,
     "bracketSpacing": true
   },
-  "packageManager": "pnpm@8.7.4",
+  "packageManager": "pnpm@9.11",
   "keywords": [
     "enum",
     "constant",
