@@ -4,7 +4,7 @@
     "type": "git",
     "url": "https://github.com/dmitry-shashev/struct-enum"
   },
-  "version": "0.0.8",
+  "version": "0.0.10",
   "description": "Improved constants",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -12,17 +12,17 @@
   "scripts": {
     "prepare": "husky install",
     "prebuild": "shx rm -rf dist",
-    "build": "tsc && tsc --module CommonJS --outDir dist/cjs",
+    "build": "tsc --module CommonJS --outDir dist/cjs",
     "prettier-format": "prettier --write . && git add --all",
-    "test": "jest",
+    "test": "tsx ./test/main.test.ts",
     "lint": "eslint src"
   },
   "files": [
     "dist"
   ],
   "engines": {
-    "node": ">=18.17.1",
-    "pnpm": ">=8.7.4"
+    "node": ">=20.11.0",
+    "pnpm": ">=9.11"
   },
   "prettier": {
     "arrowParens": "always",
@@ -32,7 +32,7 @@
     "singleQuote": true,
     "bracketSpacing": true
   },
-  "packageManager": "pnpm@8.7.4",
+  "packageManager": "pnpm@9.11",
   "keywords": [
     "enum",
     "constant",
@@ -45,16 +45,15 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@types/jest": "29.5.4",
+    "@types/node": "22.7.0",
     "@typescript-eslint/eslint-plugin": "6.5.0",
     "@typescript-eslint/parser": "6.5.0",
     "eslint": "8.48.0",
     "eslint-config-prettier": "9.0.0",
     "husky": "8.0.3",
-    "jest": "29.6.4",
     "prettier": "3.0.3",
     "shx": "0.3.4",
-    "ts-jest": "29.1.1",
+    "tsx": "4.19.1",
     "typescript": "5.2.2",
     "typescript-eslint": "0.0.1-alpha.0"
   }
